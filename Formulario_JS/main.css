@@ -1,0 +1,27 @@
+.container{
+    margin: 0 auto;
+    width: 20%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+}
+button {
+    margin-top: 20px;
+    margin-left: 5px;
+}
+input {
+    margin-left: 5px;
+}
+body {
+    text-align: center;
+}
+.mensagemCorreta {
+    background-color: green;
+    color: white;
+    display: none;
+}
+.mensagemIncorreta {
+    background-color: red;
+    color: white;
+    display: none;
+}
