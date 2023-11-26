@@ -1,0 +1,51 @@
+@use 'variaveis';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.container {
+    max-width: 960px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.fundo {
+    background-image: url(../img/fundoBaloes.jpg);
+    background-repeat: no-repeat;
+    height: 100vh;
+
+    &__escuro {
+        background-image: linear-gradient(variaveis.$corDegrade, transparent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+}
+
+.conteudo {
+    color: variaveis.$corTexto;
+    display: flex;
+    justify-content: space-around;
+
+    &__timer {
+        font-size: 32px;
+        margin-top: 20px;
+    }
+
+    &__text {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    &__imagem {
+        max-width: 50%;
+        border-radius: 10px;
+    }
+}
