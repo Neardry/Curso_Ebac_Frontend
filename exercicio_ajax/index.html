@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Github</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img id="foto" class="profile-avatar" src="https://via.placeholder.com/180x180" alt=".">
+            <h1 class="profile-name" id="nome"></h1>
+            <h2 class="profile-username" id="nome_usuario"></h2>
+            <ul class="numbers">
+                <li class="numbers-item">
+                    <h4>Repositórios</h4>
+                    <span id="repositorios"></span>
+                </li>
+                <li class="numbers-item">
+                    <h4>Seguidores</h4>
+                    <span id="seguidores"></span>
+                </li>
+                <li class="numbers-item">
+                    <h4>Seguindo</h4>
+                    <span id="seguindo"></span>
+                </li>
+            </ul>
+            <a href="#" class="profile-link" id="link">Ver no Github</a>
+        </div>
+    </header>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const nome = document.querySelector('#nome');
+            const nome_usuario = document.querySelector('#nome_usuario');
+            const repositorios = document.querySelector('#repositorios');
+            const seguidores = document.querySelector('#seguidores');
+            const seguindo = document.querySelector('#seguindo');
+            const link = document.querySelector('#link');
+            const foto = document.querySelector('#foto')
+            const criacao = document.querySelector('#criacao')
+
+            const endpoint = 'https://api.github.com/users/Neardry'
+
+            fetch(endpoint).then(function(resposta) {
+                return resposta.json();
+
+            }).then(function(json) {
+                nome.innerText = json.name;
+                nome_usuario.innerText = `@${json.login}`;
+                repositorios.innerText = json.public_repos;
+                seguidores.innerText = json.followers;
+                seguindo.innerText = json.following;
+                foto.src = json.avatar_url;
+                link.href = json.html_url;
+            })
+        })
+    </script>
+</body>
+</html>
